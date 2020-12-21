@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
+using SecurityManager;
 
 namespace SyslogClient
 {
@@ -14,15 +16,24 @@ namespace SyslogClient
         public static EventManager proxyLog;
         static void Main(string[] args)
         {
-            NetTcpBinding binding = new NetTcpBinding();
-            string address = "net.tcp://localhost:9999/WhitelistFirewallService";
+            string serverCertCN = "servis";
 
-            using (WhitelistFirewall proxy = new WhitelistFirewall(binding, new EndpointAddress(new Uri(address))))
+            #region WhiteList
+            NetTcpBinding binding = new NetTcpBinding();
+            binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
+
+            X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine, serverCertCN);
+            EndpointAddress address = new EndpointAddress(new Uri("net.tcp://localhost:9999/WhitelistFirewallService"),
+                                      new X509CertificateEndpointIdentity(srvCert));
+
+            
+
+            using (WhitelistFirewall proxy = new WhitelistFirewall(binding, address))
             {
                 proxy.establishCommunication();
             }
 
-
+            #endregion
             //Console.ReadLine();
 
             #region ConfigService
@@ -40,11 +51,18 @@ namespace SyslogClient
 
             #endregion
 
-            string addressLog = "net.tcp://localhost:9002/EventManagerService";
+            #region Logging
+            NetTcpBinding bindingLog = new NetTcpBinding();
+            bindingLog.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
 
-            proxyLog = new EventManager(binding, new EndpointAddress(new Uri(addressLog)));
+           
+            EndpointAddress addressLog = new EndpointAddress(new Uri("net.tcp://localhost:9002/EventManagerService"),
+                                      new X509CertificateEndpointIdentity(srvCert));
+            
+
+            proxyLog = new EventManager(binding, addressLog);
             proxyLog.Test();
-
+            #endregion
 
             Console.ReadLine();
         }

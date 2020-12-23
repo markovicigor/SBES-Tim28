@@ -2,6 +2,7 @@
 using SecurityManager;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
@@ -35,7 +36,7 @@ namespace SyslogClient
            try
             {
                 factory.establishCommunication();
-                Console.WriteLine("Komunikacija je ostvarena.. ");
+
             }
             catch(Exception e)
             {
@@ -43,22 +44,36 @@ namespace SyslogClient
                 Console.WriteLine(e.Message);
             }
         }
+
+
+        public bool CheckConfiguration(string pp)
+        {
+            bool rez = false;
+            try
+            {
+                if(factory.CheckConfiguration(pp))
+                 {
+                   rez = true;
+                   
+                  }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                
+
+            }
+
+
+            return rez;
+        }
         public void Dispose()
         {
-            if(factory != null)
+            if (factory != null)
             {
                 factory = null;
             }
             this.Close();
-        }
-
-        public string CheckConfiguration(int port, string protocol)
-        {
-            string rez = "";
-
-            rez = factory.CheckConfiguration(port, protocol);
-
-            return rez;
         }
     }
 }

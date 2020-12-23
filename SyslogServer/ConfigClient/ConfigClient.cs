@@ -18,16 +18,59 @@ namespace ConfigClient
             factory = this.CreateChannel();
         }
 
-        public void ChangeConfiguration()
+        public void AllowedConfiguration()
         {
             try
             {
-                factory.ChangeConfiguration();
+                factory.AllowedConfiguration();
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error: {0}", e.Message);
             }
+        }
+        public bool addPP(string pp)
+        {
+            bool uspesno = false;
+            try
+            {
+                Console.WriteLine(factory.addPP(pp));
+                if(factory.addPP(pp))
+                {
+                    uspesno = true;
+                }
+                else
+                {
+                    uspesno = false;
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+            }
+            return uspesno;
+        }
+        public bool modifyPP(string pp,string zamjenskiPP)
+        {
+            bool uspesno = false;
+            try
+            {
+
+                if(factory.modifyPP(pp,zamjenskiPP))
+                {
+                    uspesno = true;
+                }
+                else
+                {
+                    uspesno = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: {0}", e.Message);
+            }
+            return uspesno;
         }
     }
 }

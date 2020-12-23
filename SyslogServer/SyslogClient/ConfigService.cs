@@ -1,6 +1,7 @@
 ﻿using Common;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,10 @@ namespace SyslogClient
 {
     public class ConfigService : IConfigClient
     {
-        public void ChangeConfiguration()
+
+        public void AllowedConfiguration()
         {
+
             List<string> pp = new List<string>();
             string path = @"..\..\..\SyslogClient\bin\debug\WhiteListFireWall.txt";
 
@@ -34,10 +37,52 @@ namespace SyslogClient
 
             File.WriteAllText(path, upis);
 
-            // Program.proxy.LogEvent("Konfiguracija je izmjenjena");
 
-            Program.proxyLog.EventLog("Izmenjena konfiguracija.");
+
+           // Program.proxyLog.EventLog("Izmenjena konfiguracija.");
         }
+
+        public bool addPP(string pp)
+        {
+            string[] lines = System.IO.File.ReadAllLines(@"..\..\..\SyslogClient\bin\debug\WhiteListFireWall.txt");
+            bool dozvoljen = false;
+
+            try
+            {
+                 if(Program.proxy.CheckConfiguration(pp))
+                  {
+                     lines.ToList().Add(pp);
+                     dozvoljen = true;
+                    Console.WriteLine("Protokol/port je dozvoljen za dodavanje" );
+                  }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message );
+            }
+
+            return dozvoljen;
+        }
+
+        public bool modifyPP(string pp,string zamjenskiPP)
+        {
+            string[] lines = System.IO.File.ReadAllLines(@"..\..\..\SyslogClient\bin\debug\WhiteListFireWall.txt");
+
+            bool dozvoljen = false;
+            if (Program.proxy.CheckConfiguration(pp) && Program.proxy.CheckConfiguration(zamjenskiPP))
+            {
+                pp = zamjenskiPP;
+                lines.ToList().Add(pp);
+                Console.WriteLine("Protokol/port je dozvoljen za izmjenu");
+                dozvoljen = true;
+            }
+
+            return dozvoljen;
+
+
+        }
+
+
     }
 
 }

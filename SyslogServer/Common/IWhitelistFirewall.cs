@@ -11,7 +11,7 @@ namespace Common
     public interface IWhitelistFirewall
     {
         [OperationContract]
-        string CheckConfiguration(int port, string protocol);
+        bool CheckConfiguration(string pp);
         [OperationContract]
         void establishCommunication();
     }

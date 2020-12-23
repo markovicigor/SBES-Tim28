@@ -47,7 +47,7 @@ namespace SyslogClient
             try
             {
                 factory.Test();
-                Console.WriteLine("Komunikacija sa SysLog Serverom uspesno ostvarena.");
+               
             }catch(Exception e)
             {
                 Console.WriteLine(e.Message);

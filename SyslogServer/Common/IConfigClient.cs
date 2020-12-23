@@ -11,6 +11,12 @@ namespace Common
     public interface IConfigClient
     {
         [OperationContract]
-        void ChangeConfiguration();
+        void AllowedConfiguration();
+
+        [OperationContract]
+        bool addPP(string pp);
+
+        [OperationContract]
+        bool modifyPP(string pp, string zamjenskiPP);
     }
 }

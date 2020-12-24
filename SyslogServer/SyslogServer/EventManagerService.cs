@@ -11,7 +11,7 @@ namespace SyslogServer
 
     public class EventManagerService : IEventManager
     {
-        Audit audit = new Audit();
+        //Audit audit = new Audit();
         static int i = -1;
 
         public void EventLog(string message)
@@ -19,7 +19,9 @@ namespace SyslogServer
             Event e = new Event("Criticallity", DateTime.Now, "Source", message, SecurityManager.State.CLOSED);
             int id = getID();
 
-            audit.Log(e, id);
+            //audit.Log(e, id);
+
+            FileWriter.WriteToFile(e, id);
 
             Console.WriteLine("Event je logovan.");
         }

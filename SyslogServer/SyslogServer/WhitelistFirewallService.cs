@@ -12,7 +12,7 @@ namespace SyslogServer
     {
         public bool CheckConfiguration(string pp)
         {
-            Console.WriteLine($"String je {pp}");
+
             bool dozvoljen = false;
             string[] lines = System.IO.File.ReadAllLines(@"..\..\..\SyslogClient\bin\debug\WhiteListFireWall.txt");
 

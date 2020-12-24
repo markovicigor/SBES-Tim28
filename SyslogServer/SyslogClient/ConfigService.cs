@@ -54,7 +54,8 @@ namespace SyslogClient
                      lines.ToList().Add(pp);
                      dozvoljen = true;
                     Console.WriteLine("Protokol/port je dozvoljen za dodavanje" );
-                  }
+                    Program.proxyLog.EventLog("Izmenjena konfiguracija.");
+                }
             }
             catch(Exception e)
             {
@@ -74,6 +75,7 @@ namespace SyslogClient
                 pp = zamjenskiPP;
                 lines.ToList().Add(pp);
                 Console.WriteLine("Protokol/port je dozvoljen za izmjenu");
+                Program.proxyLog.EventLog("Izmenjena konfiguracija.");
                 dozvoljen = true;
             }
 

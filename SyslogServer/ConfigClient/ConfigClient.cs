@@ -34,7 +34,7 @@ namespace ConfigClient
             bool uspesno = false;
             try
             {
-                Console.WriteLine(factory.addPP(pp));
+
                 if(factory.addPP(pp))
                 {
                     uspesno = true;

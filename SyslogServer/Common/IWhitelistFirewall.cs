@@ -10,6 +10,7 @@ namespace Common
     [ServiceContract]
     public interface IWhitelistFirewall
     {
+
         [OperationContract]
         bool CheckConfiguration(string pp);
         [OperationContract]

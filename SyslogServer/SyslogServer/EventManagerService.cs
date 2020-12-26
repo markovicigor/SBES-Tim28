@@ -16,18 +16,25 @@ namespace SyslogServer
 
         public void EventLog(string message)
         {
-            Event e = new Event("Criticallity", DateTime.Now, "Source", message, SecurityManager.State.CLOSED);
             int id = getID();
 
-            //audit.Log(e, id);
+            if (FileWriter.readFromFile().ContainsKey(id))
+            {
+                id++;
+            }
+            Event e = new Event(id, "Criticallity", DateTime.Now, "Source", message, SecurityManager.State.CLOSED);
 
-            FileWriter.WriteToFile(e, id);
+
+
+
+            FileWriter.WriteToFile(e);
 
             Console.WriteLine("Event je logovan.");
         }
 
         public int getID()
         {
+            int i = FileWriter.readFromFile().Count - 1;
             return ++i;
         }
 

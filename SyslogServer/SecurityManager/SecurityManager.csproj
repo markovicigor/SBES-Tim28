@@ -47,6 +47,9 @@
     <Compile Include="Audit.cs" />
     <Compile Include="CertManager.cs" />
     <Compile Include="ClientCertValidator.cs" />
+    <Compile Include="CustomAuthorizationManager.cs" />
+    <Compile Include="CustomAuthorizationPolicy.cs" />
+    <Compile Include="CustomPrincipal.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="FileWriter.cs" />
     <Compile Include="Formatter.cs" />

@@ -3,6 +3,7 @@ using SecurityManager;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IdentityModel.Policy;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
@@ -83,6 +84,42 @@ namespace SyslogServer
             }
             #endregion
             host2.Open();
+            #endregion
+
+            #region ConsumerService
+            NetTcpBinding bindingCS = new NetTcpBinding();
+            string addressCS = "net.tcp://localhost:9000/ConsumerService";
+
+            ServiceHost hostCS = new ServiceHost(typeof(ConsumerService));
+            hostCS.AddServiceEndpoint(typeof(IConsumer), bindingCS, addressCS);
+
+            hostCS.Authorization.ServiceAuthorizationManager = new CustomAuthorizationManager();
+
+            List<IAuthorizationPolicy> policies = new List<IAuthorizationPolicy>();
+            policies.Add(new CustomAuthorizationPolicy());
+            hostCS.Authorization.ExternalAuthorizationPolicies = policies.AsReadOnly();
+
+            #region Debbug-ovanje consumer hosta
+            if (debug == null)
+            {
+                hostCS.Description.Behaviors.Add(new ServiceDebugBehavior() { IncludeExceptionDetailInFaults = true });
+            }
+            else
+            {
+                if (!debug.IncludeExceptionDetailInFaults)
+                {
+                    debug.IncludeExceptionDetailInFaults = true;
+                }
+            }
+            #endregion
+            try
+            {
+                hostCS.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error consumer  - " + e.Message);
+            }
             #endregion
 
             Console.WriteLine("Server je otvoren..");

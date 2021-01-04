@@ -18,7 +18,7 @@ namespace SyslogServer
         {
             int id = getID();
 
-            if (FileWriter.readFromFile().ContainsKey(id))
+            while (FileWriter.readFromFile().ContainsKey(id))
             {
                 id++;
             }

@@ -1,4 +1,6 @@
-0;Criticallity;12/24/2020 6:11:38 PM;Source;Izmenjena konfiguracija;CLOSED
-1;Criticallity;12/26/2020 4:44:02 PM;Source;Izmenjena konfiguracija.;CLOSED
-2;Criticallity;12/26/2020 4:44:16 PM;Source;Izmenjena konfiguracija.;CLOSED
+0;Criticallity;12/24/2020 6:11:38 PM;Source;blabal;CLOSED
+1;Criticallity;12/26/2020 4:44:02 PM;Source;nova poruka;CLOSED
 3;Criticallity;12/26/2020 4:44:24 PM;Source;Izmenjena konfiguracija.;CLOSED
+6;Criticallity;1/4/2021 3:08:31 PM;Source;Izmenjena konfiguracija.;CLOSED
+7;Criticallity;1/4/2021 3:08:56 PM;Source;Izmenjena konfiguracija.;CLOSED
+5;Criticallity;1/4/2021 3:09:24 PM;Source;Izmenjena konfiguracija.;CLOSED

@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 using System.Reflection;
+=======
+﻿using System.Reflection;
+>>>>>>> Stashed changes
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -10,7 +14,11 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ConsumerClient")]
+<<<<<<< Updated upstream
 [assembly: AssemblyCopyright("Copyright ©  2021")]
+=======
+[assembly: AssemblyCopyright("Copyright ©  2020")]
+>>>>>>> Stashed changes
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +28,11 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
+<<<<<<< Updated upstream
 [assembly: Guid("3f9fee63-84d3-4f31-bfdf-904434fb2b18")]
+=======
+[assembly: Guid("d59d93d1-d448-49f6-ae94-57f61e9e4c01")]
+>>>>>>> Stashed changes
 
 // Version information for an assembly consists of the following four values:
 //

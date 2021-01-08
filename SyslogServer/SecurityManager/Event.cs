@@ -29,7 +29,11 @@ namespace SecurityManager
         [DataMember]
         public State eState { get; set; }
 
+<<<<<<< Updated upstream
         public Event(int id, string c, DateTime t, string s, string m, State es)
+=======
+        public Event(int id,string c, DateTime t, string s, string m, State es)
+>>>>>>> Stashed changes
         {
             this.id = id;
             this.criticality = c;
@@ -41,7 +45,11 @@ namespace SecurityManager
 
         public override string ToString()
         {
+<<<<<<< Updated upstream
             string ret = "Criticality = " + criticality + "\n" + "Timestamp = " + timestamp.ToString() + "\n" + "Source = " + source + "\n" + "Message = " + message + "\n" + "State = " + eState.ToString() + "\n";
+=======
+            string ret = "Criticality = " +   criticality + "\n" + "Timestamp = " + timestamp.ToString() + "\n" + "Source = " + source + "\n" + "Message = " + message + "\n" + "State = " + eState.ToString() + "\n";
+>>>>>>> Stashed changes
 
             return ret;
         }

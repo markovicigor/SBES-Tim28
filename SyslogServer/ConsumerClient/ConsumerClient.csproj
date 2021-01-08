@@ -4,13 +4,21 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+<<<<<<< Updated upstream
     <ProjectGuid>{3F9FEE63-84D3-4F31-BFDF-904434FB2B18}</ProjectGuid>
+=======
+    <ProjectGuid>{D59D93D1-D448-49F6-AE94-57F61E9E4C01}</ProjectGuid>
+>>>>>>> Stashed changes
     <OutputType>Exe</OutputType>
     <RootNamespace>ConsumerClient</RootNamespace>
     <AssemblyName>ConsumerClient</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+<<<<<<< Updated upstream
+=======
+    <Deterministic>true</Deterministic>
+>>>>>>> Stashed changes
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,9 +39,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+<<<<<<< Updated upstream
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+=======
+  <PropertyGroup>
+    <StartupObject>ConsumerClient.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+>>>>>>> Stashed changes
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,15 +64,34 @@
     <Compile Include="Consumer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Properties\Program.cs" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{ec454726-60c0-4bdc-9f1e-fa54e3241031}</Project>
       <Name>Common</Name>
     </ProjectReference>
+=======
+    <ProjectReference Include="..\BackupService\BackupServer.csproj">
+      <Project>{e9af6c4f-f82b-41a1-99bc-6d4cbd1ef3f0}</Project>
+      <Name>BackupServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{EC454726-60C0-4BDC-9F1E-FA54E3241031}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecurityManager\SecurityManager.csproj">
+      <Project>{3b358df0-3a3b-46d9-ade0-ab7d0d577bfe}</Project>
+      <Name>SecurityManager</Name>
+    </ProjectReference>
+>>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

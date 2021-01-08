@@ -16,7 +16,11 @@ namespace SecurityManager
 
 
 
+<<<<<<< Updated upstream
             tw.WriteLine(e.id + ";" + e.criticality + ";" + e.timestamp + ";" + e.source + ";" + e.message + ";" + e.eState);
+=======
+            tw.WriteLine(e.id + ";" + e.criticality + ";"  + e.timestamp + ";" +  e.source + ";" + e.message + ";"  +  e.eState);
+>>>>>>> Stashed changes
 
             tw.Close();
         }

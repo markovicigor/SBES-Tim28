@@ -8,15 +8,28 @@ using System.Threading.Tasks;
 namespace Common
 {
     [ServiceContract]
+<<<<<<< Updated upstream
     public interface IConsumer
     {
+=======
+   public  interface IConsumer
+    {
+
+>>>>>>> Stashed changes
         [OperationContract]
         string Read();
 
         [OperationContract]
+<<<<<<< Updated upstream
         void Update(int id, string newMsg);
 
         [OperationContract]
         void Delete(int id);
+=======
+        bool Update(int id, string newMsg);
+
+        [OperationContract]
+        bool Delete(int id);
+>>>>>>> Stashed changes
     }
 }

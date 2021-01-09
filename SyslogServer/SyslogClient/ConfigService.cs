@@ -44,6 +44,7 @@ namespace SyslogClient
 
         public bool addPP(string pp)
         {
+           
             string[] lines = System.IO.File.ReadAllLines(@"..\..\..\SyslogClient\bin\debug\WhiteListFireWall.txt");
             bool dozvoljen = false;
 

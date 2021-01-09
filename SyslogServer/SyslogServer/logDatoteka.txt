@@ -1,6 +1,31 @@
-0;Criticallity;12/24/2020 6:11:38 PM;Source;blabal;CLOSED
-1;Criticallity;12/26/2020 4:44:02 PM;Source;nova poruka;CLOSED
-3;Criticallity;12/26/2020 4:44:24 PM;Source;Izmenjena konfiguracija.;CLOSED
-6;Criticallity;1/4/2021 3:08:31 PM;Source;Izmenjena konfiguracija.;CLOSED
-7;Criticallity;1/4/2021 3:08:56 PM;Source;Izmenjena konfiguracija.;CLOSED
-5;Criticallity;1/4/2021 3:09:24 PM;Source;Izmenjena konfiguracija.;CLOSED
+0;Criticallity;12/24/2020 6:11:38 PM;Source;Izmenjena konfiguracija;CLOSED
+1;Criticallity;12/26/2020 3:56:16 PM;Source;Izmeni konfiguraciju preko consumera;CLOSED
+4;Criticallity;12/26/2020 4:14:02 PM;Source;Izmenjena konfiguracija.;CLOSED
+6;Criticallity;12/26/2020 4:49:20 PM;Source;Izmjena preko consumera;CLOSED
+8;Criticallity;1/4/2021 8:52:07 PM;Source;Izmenjena konfiguracija.;CLOSED
+9;Criticallity;1/4/2021 9:01:02 PM;Source;Izmenjena konfiguracija.;CLOSED
+11;Criticallity;1/6/2021 5:00:05 PM;Source;Izmenjena konfiguracija.;CLOSED
+12;Criticallity;1/7/2021 5:15:43 PM;Source;Izmenjena konfiguracija.;CLOSED
+13;Criticallity;1/7/2021 5:48:28 PM;Source;Izmenjena konfiguracija.;CLOSED
+14;Criticallity;1/7/2021 5:54:07 PM;Source;Izmenjena konfiguracija.;CLOSED
+16;Criticallity;1/7/2021 6:04:00 PM;Source;Izmenjena konfiguracija.;CLOSED
+15;Criticallity;1/7/2021 6:05:52 PM;Source;Izmenjena konfiguracija.;CLOSED
+17;Criticallity;1/7/2021 7:24:10 PM;Source;Izmenjena konfiguracija.;CLOSED
+18;Criticallity;1/7/2021 7:24:22 PM;Source;Izmenjena konfiguracija.;CLOSED
+19;Criticallity;1/7/2021 7:25:33 PM;Source;Izmenjena konfiguracija.;CLOSED
+20;Criticallity;1/7/2021 7:25:55 PM;Source;Izmenjena konfiguracija.;CLOSED
+21;Criticallity;1/7/2021 7:26:26 PM;Source;Izmenjena konfiguracija.;CLOSED
+22;Criticallity;1/7/2021 7:28:34 PM;Source;blaba;CLOSED
+23;Criticallity;1/7/2021 7:29:10 PM;Source;nvpa;CLOSED
+24;Criticallity;1/7/2021 7:40:18 PM;Source;Izmenjena konfiguracija.;CLOSED
+25;Criticallity;1/7/2021 7:42:33 PM;Source;Izmenjena konfiguracija.;CLOSED
+26;Criticallity;1/7/2021 7:45:21 PM;Source;Izmenjena konfiguracija.;CLOSED
+27;Criticallity;1/7/2021 7:48:20 PM;Source;Izmenjena konfiguracija.;CLOSED
+28;Criticallity;1/7/2021 7:48:27 PM;Source;bla;CLOSED
+29;Criticallity;1/7/2021 7:48:30 PM;Source;Izmenjena konfiguracija.;CLOSED
+30;Criticallity;1/7/2021 7:52:35 PM;Source;Izmenjena konfiguracija.;CLOSED
+31;Criticallity;1/8/2021 4:09:26 PM;Source;Izmenjena konfiguracija.;CLOSED
+32;Criticallity;1/8/2021 4:09:35 PM;Source;Izmenjena konfiguracija.;CLOSED
+33;Criticallity;1/8/2021 4:09:42 PM;Source;afafa;CLOSED
+34;Criticallity;1/8/2021 4:12:13 PM;Source;Izmenjena konfiguracija.;CLOSED
+35;Criticallity;1/8/2021 4:13:31 PM;Source;Izmenjena konfiguracija.;CLOSED

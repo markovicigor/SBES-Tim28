@@ -13,6 +13,7 @@ namespace SecurityManager
 
         public override void Validate(X509Certificate2 certificate)
         {
+
            if((DateTime.Now - certificate.NotBefore).TotalDays>30)
            {
                 throw new Exception("Certificate is not old enough!");

@@ -18,11 +18,11 @@ namespace SyslogServer
         {
             int id = getID();
 
-            while (FileWriter.readFromFile().ContainsKey(id))
+             while(FileWriter.readFromFile().ContainsKey(id))
             {
                 id++;
             }
-            Event e = new Event(id, "Criticallity", DateTime.Now, "Source", message, SecurityManager.State.CLOSED);
+            Event e = new Event(id,"Criticallity", DateTime.Now, "Source", message, SecurityManager.State.CLOSED);
 
 
 

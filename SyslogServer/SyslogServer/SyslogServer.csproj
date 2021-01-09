@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackupServerService.cs" />
     <Compile Include="ConsumerService.cs" />
     <Compile Include="EventManagerService.cs" />
     <Compile Include="Program.cs" />

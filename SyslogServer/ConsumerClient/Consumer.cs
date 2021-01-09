@@ -1,6 +1,7 @@
 ﻿using Common;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -12,25 +13,34 @@ namespace ConsumerClient
     {
         IConsumer factory;
 
-        public Consumer(NetTcpBinding binding, EndpointAddress address): base(binding, address)
+        public Consumer(NetTcpBinding binding, EndpointAddress address)
+            : base(binding, address)
         {
+
             factory = this.CreateChannel();
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
+            bool uspesno = false;
             try
             {
-                factory.Delete(id);
-                Console.WriteLine("Dogadjaj[{0}] uspesno obrisan.", id);
+                if(factory.Delete(id))
+                {
+                    Console.WriteLine("Dogadjaj[{0}] uspjesno obrisan.", id);
+                    uspesno = true;
+                }
+                
+                
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
+            return uspesno;
         }
 
-        public string Read()
+    public string Read()
         {
             try
             {
@@ -38,22 +48,31 @@ namespace ConsumerClient
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine( e.Message);
             }
+
             return "";
         }
 
-        public void Update(int id, string newMsg)
+        public bool Update(int id, string newMsg)
         {
+            
+            bool uspesno = false;
             try
             {
-                factory.Update(id, newMsg);
-                Console.WriteLine("Dogadjaj[{0}] uspesno update-ovan.", id);
+                if (factory.Update(id, newMsg))
+                {
+                    Console.WriteLine("Dogadjaj[{0}] uspjesno update-ovan.", id);
+                    uspesno = true;
+                }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
+
+
+            return uspesno;
         }
 
         public void Dispose()
@@ -62,6 +81,7 @@ namespace ConsumerClient
             {
                 factory = null;
             }
+
             this.Close();
         }
     }

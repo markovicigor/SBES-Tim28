@@ -1,9 +1,10 @@
+﻿using SecurityManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using System.ServiceModel;
 
 namespace ConsumerClient
 {
@@ -17,6 +18,8 @@ namespace ConsumerClient
 
             while (true)
             {
+
+
                 int izbor;
 
                 Console.WriteLine("Unesite vas izbor:");
@@ -26,6 +29,8 @@ namespace ConsumerClient
                 Console.WriteLine("4.Exit.");
                 izbor = Convert.ToInt32(Console.ReadLine());
 
+                Dictionary<int, Event> dogadjaji = FileWriter.readFromFile();
+
                 switch (izbor)
                 {
                     case 1:
@@ -33,47 +38,50 @@ namespace ConsumerClient
                         {
                             Console.WriteLine(client.Read());
                         }
-                        catch (Exception e)
+                        catch(Exception e)
                         {
                             Console.WriteLine(e.Message);
                         }
+
                         break;
-
                     case 2:
-                        try
-                        {
-                            Console.WriteLine("Unesite ID dogadjaja koji zelite da izmenite: ");
-                            int id = -1;
-                            Int32.TryParse(Console.ReadLine(), out id);
+                       
+                        Console.WriteLine("Unesite ID dogadjaja koji zelite da izmenite: ");
+                        int id;
+                        id = Convert.ToInt32(Console.ReadLine());
 
-                            Console.WriteLine("Unesite novu poruku: ");
+                        Console.WriteLine("Unesite novu poruku: ");
                             string newMsg = Console.ReadLine();
-
+                        if(!dogadjaji.ContainsKey(id))
+                        {
+                            Console.WriteLine("Nepostojeci id" );
+                        }
+                        else
+                        {
                             client.Update(id, newMsg);
                         }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
+                        
+                        
+                       
                         break;
-
                     case 3:
-                        try
-                        {
+                        
                             Console.WriteLine("Unesite ID dogadjaja koji zelite da obrisete: ");
-                            int id = -1;
-                            Int32.TryParse(Console.ReadLine(), out id);
-
-                            client.Delete(id);
-                        }
-                        catch (Exception e)
+                        int id2;
+                        id2 = Convert.ToInt32(Console.ReadLine());
+                        if (!dogadjaji.ContainsKey(id2))
                         {
-                            Console.WriteLine(e.Message);
+                            Console.WriteLine("Nepostojeci id");
                         }
+                        else
+                        {
+                           client.Delete(id2);
+                        }
+                        
                         break;
-
                     case 4:
                         break;
+
                 }
                 if (izbor == 4)
                 {
@@ -85,4 +93,3 @@ namespace ConsumerClient
         }
     }
 }
-

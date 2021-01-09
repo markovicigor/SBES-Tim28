@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SecurityManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -8,16 +9,18 @@ using System.Threading.Tasks;
 namespace Common
 {
     [ServiceContract]
-   public  interface IConsumer
+    public interface IBackupServer
     {
+        [OperationContract]
+        void TestCommunication();
 
         [OperationContract]
-        string Read();
+        string BackupLog(Dictionary<int, Event> dic);
 
         [OperationContract]
-        bool Update(int id, string newMsg);
+        void SendMessage(string message, byte[] sign);
 
-        [OperationContract]
-        bool Delete(int id);
+
+
     }
 }

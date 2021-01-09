@@ -16,7 +16,7 @@ namespace SecurityManager
 
 
 
-            tw.WriteLine(e.id + ";" + e.criticality + ";" + e.timestamp + ";" + e.source + ";" + e.message + ";" + e.eState);
+            tw.WriteLine(e.id + ";" + e.criticality + ";"  + e.timestamp + ";" +  e.source + ";" + e.message + ";"  +  e.eState);
 
             tw.Close();
         }

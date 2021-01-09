@@ -25,7 +25,7 @@ namespace ConfigClient
             while (true)
             {
 
-
+               
                 int izbor;
 
                 Console.WriteLine("Unesite vas izbor:");

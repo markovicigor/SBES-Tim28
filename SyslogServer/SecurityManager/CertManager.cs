@@ -11,7 +11,6 @@ namespace SecurityManager
     {
         public static X509Certificate2 GetCertificateFromStorage(StoreName storeName, StoreLocation storeLocation, string subjectName)
         {
-           
             X509Store store = new X509Store(storeName, storeLocation);
             store.Open(OpenFlags.ReadOnly);
 
@@ -24,7 +23,6 @@ namespace SecurityManager
                 {
                     return c;
                 }
-               
             }
 
             return null;

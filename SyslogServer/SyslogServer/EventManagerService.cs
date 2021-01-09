@@ -18,19 +18,11 @@ namespace SyslogServer
         {
             int id = getID();
 
-<<<<<<< Updated upstream
             while (FileWriter.readFromFile().ContainsKey(id))
             {
                 id++;
             }
             Event e = new Event(id, "Criticallity", DateTime.Now, "Source", message, SecurityManager.State.CLOSED);
-=======
-             while(FileWriter.readFromFile().ContainsKey(id))
-            {
-                id++;
-            }
-            Event e = new Event(id,"Criticallity", DateTime.Now, "Source", message, SecurityManager.State.CLOSED);
->>>>>>> Stashed changes
 
 
 

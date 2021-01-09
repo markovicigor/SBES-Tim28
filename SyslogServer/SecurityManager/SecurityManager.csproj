@@ -47,22 +47,14 @@
   <ItemGroup>
     <Compile Include="Audit.cs" />
     <Compile Include="CertManager.cs" />
-    <Compile Include="CustomAuthorizationManager.cs" />
     <Compile Include="ClientCertValidator.cs" />
-<<<<<<< Updated upstream
     <Compile Include="CustomAuthorizationManager.cs" />
     <Compile Include="CustomAuthorizationPolicy.cs" />
     <Compile Include="CustomPrincipal.cs" />
-=======
-    <Compile Include="CustomAuthorizationPolicy.cs" />
-    <Compile Include="CustomPrincipal.cs" />
-    <Compile Include="DigitalSignature.cs" />
->>>>>>> Stashed changes
     <Compile Include="Event.cs" />
     <Compile Include="FileWriter.cs" />
     <Compile Include="Formatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceCertValidator.cs" />
     <Compile Include="ServisCertValidator.cs" />
     <Compile Include="ServisEventCertValidator.cs" />
   </ItemGroup>

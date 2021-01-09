@@ -19,7 +19,7 @@ namespace SyslogClient
         public static WhitelistFirewall proxy;
         static void Main(string[] args)
         {
-            
+
 
             string serverCertCN = "servis";
 
@@ -75,7 +75,7 @@ namespace SyslogClient
             bindingLog.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
             EndpointAddress addressLog = new EndpointAddress(new Uri("net.tcp://localhost:9002/EventManagerService")
                                       ,new X509CertificateEndpointIdentity(srvCert));
-            Console.WriteLine($"Klijent Event Manager je uspesno ostvario komunikaciju na adresi: {addressLog}");
+            Console.WriteLine($"Klijent WhiteList firewall je uspesno ostvario komunikaciju na adresi: {addressLog}");
             proxyLog = new EventManager(binding, addressLog);
             proxyLog.Test();
             #endregion

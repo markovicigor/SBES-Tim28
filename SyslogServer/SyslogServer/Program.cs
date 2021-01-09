@@ -15,15 +15,13 @@ using System.Threading.Tasks;
 
 namespace SyslogServer
 {
-    public class Program
+    class Program
     {
-       
-        public static Dictionary<int, Event> dogadjaji = new Dictionary<int, Event>();
         static void Main(string[] args)
         {
             string srvCertCN = Formatter.ParseName(WindowsIdentity.GetCurrent().Name);
 
-            
+
             #region WhiteListHost
             NetTcpBinding binding = new NetTcpBinding();
             binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
@@ -54,15 +52,7 @@ namespace SyslogServer
                 }
             }
             #endregion
-            try
-            {
-                host.Open();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Greska na WhiteListFireWall {e.Message}");
-            }
-
+            host.Open();
 
             #endregion
 
@@ -93,15 +83,7 @@ namespace SyslogServer
                 }
             }
             #endregion
-            try
-            {
-                host2.Open();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Greska na Eventmanageru {e.Message}");
-            }
-           
+            host2.Open();
             #endregion
 
             #region ConsumerService
@@ -117,7 +99,6 @@ namespace SyslogServer
             policies.Add(new CustomAuthorizationPolicy());
             hostCS.Authorization.ExternalAuthorizationPolicies = policies.AsReadOnly();
 
-<<<<<<< Updated upstream
             #region Debbug-ovanje consumer hosta
             if (debug == null)
             {
@@ -125,17 +106,6 @@ namespace SyslogServer
             }
             else
             {
-=======
-            #region Debbugovanje consumer hosta
-            if (debug == null)
-            {
-                hostCS.Description.Behaviors.Add(
-                     new ServiceDebugBehavior() { IncludeExceptionDetailInFaults = true });
-            }
-            else
-            {
-
->>>>>>> Stashed changes
                 if (!debug.IncludeExceptionDetailInFaults)
                 {
                     debug.IncludeExceptionDetailInFaults = true;
@@ -146,68 +116,14 @@ namespace SyslogServer
             {
                 hostCS.Open();
             }
-<<<<<<< Updated upstream
             catch (Exception e)
             {
                 Console.WriteLine("Error consumer  - " + e.Message);
             }
             #endregion
 
-=======
-            catch(Exception e)
-            {
-                Console.WriteLine("Error consumer  - " + e.Message);
-            }
-
-            #endregion
-            #region BackupServer
->>>>>>> Stashed changes
             Console.WriteLine("Server je otvoren..");
-            NetTcpBinding binding3 = new NetTcpBinding();
-            binding3.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
-
-            /// Use CertManager class to obtain the certificate based on the "srvCertCN" representing the expected service identity.
-            X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, "backupserver");
-            EndpointAddress address4 = new EndpointAddress(new Uri("net.tcp://localhost:9003/BackupServer"), new X509CertificateEndpointIdentity(srvCert));
-            
-            BackupServerService proxy = new BackupServerService(binding3, address4);
-            
-
-            var startTimeSpan = TimeSpan.Zero;
-            var periodTimeSpan = TimeSpan.FromSeconds(30);
-           
-            
-            string signCertCN = Formatter.ParseName(WindowsIdentity.GetCurrent().Name) + "_sign";
-            X509Certificate2 certificateSign = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, signCertCN);
-            dogadjaji = FileWriter.readFromFile();
-            string message = proxy.BackupLog(dogadjaji);
-            byte[] signature = DigitalSignature.Create(message, HashAlgorithm.SHA1, certificateSign);
-            //Console.WriteLine("SendMessage() using {0} certificate finished.", signCertCN);
-
-            proxy.SendMessage(message, signature);
-          
-            var timer = new System.Threading.Timer((e) =>
-            {
-                dogadjaji = FileWriter.readFromFile();
-                message = proxy.BackupLog(dogadjaji);
-                signature = DigitalSignature.Create(message, HashAlgorithm.SHA1, certificateSign);
-                proxy.SendMessage(message, signature);
-                //Console.WriteLine("SendMessage() using {0} certificate finished.", signCertCN);
-
-            }, null, startTimeSpan, periodTimeSpan);
-            proxy.TestCommunication();
-
-            
-
-
-
-            #endregion
-
-
             Console.ReadLine();
-            host.Close();
-            host2.Close();
-            hostCS.Close();
         }
     }
 }
